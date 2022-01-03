@@ -5,5 +5,8 @@ node_modules
 #testing
 /test
 
+#learning by doing
+/other
+
 #development
 /.vscode

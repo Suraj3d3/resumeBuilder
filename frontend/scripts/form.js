@@ -1,3 +1,32 @@
+//checking if user is logged in or not
+if (window.localStorage.token) {
+  let loginNav = document.getElementsByClassName("loginNav");
+  for (let i = 0; i < loginNav.length; i++) {
+    let username = localStorage.email.split("@");
+    loginNav[i].innerText = username[0];
+    loginNav[i].setAttribute("href", "../core/form.html");
+
+    let userAvatar = document.getElementsByClassName("userAvatar");
+    for (let i = 0; i < userAvatar.length; i++) {
+      userAvatar[i].style.display = "inline-block";
+    }
+  }
+
+  let logoutNav = document.getElementsByClassName("logoutNav");
+  for (let i = 0; i < logoutNav.length; i++) {
+    logoutNav[i].style.display = "inline-block";
+  }
+}
+
+//logout
+let logoutNav = document.getElementsByClassName("logoutNav");
+for (let i = 0; i < logoutNav.length; i++) {
+  logoutNav[i].onclick = function () {
+    localStorage.clear();
+    window.location.reload();
+  };
+}
+
 //for storing all the degrees as an array of objects
 let basicDetails = {};
 
@@ -463,5 +492,10 @@ function combineAllDetails() {
   resumeDetails.internship = internshipDetails;
   resumeDetails.project = projectDetails;
   resumeDetails.certification = certificateDetails;
+
+  //for identifying logged in user
+  if (localStorage.email) {
+    resumeDetails.regEmail = localStorage.email;
+  }
   console.log("#########  FINAL OBJECT ##########", resumeDetails);
 }

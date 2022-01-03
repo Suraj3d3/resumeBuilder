@@ -8,6 +8,17 @@ body {
   overflow-x: hidden; /* so that the #rightRotate can be visible in full screen (in x-axis) */
 }
 
+.userAvatar {
+  display: none;
+  height: 30px;
+  width: 30px;
+}
+
+.logoutNav {
+  display: none;
+  cursor: pointer;
+}
+
 #createResumeBtn:hover,
 #viewDemoBtn:hover {
   transform: translateY(-5px);
